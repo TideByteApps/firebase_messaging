@@ -64,7 +64,7 @@ import {
       return access_token;
     }
   
-    public async sendNotification(fcmToken: string, message: object) {
+    public async sendNotification(message: object) {
       try {
         const jwt = await this.createJwt();
         const accessToken = await this.obtainAccessToken(jwt);
@@ -77,7 +77,6 @@ import {
           },
           body: JSON.stringify({
             message: {
-              token: fcmToken,
               ...message,
             },
           }),
